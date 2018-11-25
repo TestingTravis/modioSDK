@@ -21,3 +21,21 @@ script:
   - make -j2
   - make test
   - ls
+
+deploy:
+  - provider: releases
+    api_key: "${token}"
+    file:
+      - "libmodio.so"
+    skip_cleanup: true
+    on:
+      tags: true
+      condition: $TRAVIS_OS_NAME != "osx"
+  - provider: releases
+    api_key: "${token}"
+    file:
+      - "libmodio.dylib"
+    skip_cleanup: true
+    on:
+      tags: true
+      condition: $TRAVIS_OS_NAME == "osx"
