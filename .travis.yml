@@ -30,6 +30,7 @@ deploy:
     api_key: "${token}"
     file:
       - "libmodio.so"
+      - "libmodio.a"
     skip_cleanup: true
     on:
       tags: true
@@ -38,6 +39,7 @@ deploy:
     api_key: "${token}"
     file:
       - "libmodio.dylib"
+      - "libmodio.a"
     skip_cleanup: true
     on:
       tags: true
