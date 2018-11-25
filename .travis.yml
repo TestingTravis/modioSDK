@@ -21,6 +21,11 @@ script:
   - make -j2
   - make test
   - ls
+  - mkdir static_build/
+  - cd static_build/
+  - cmake ..
+  - make -j2
+  - ls
 
 deploy:
   - provider: releases
