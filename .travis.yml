@@ -15,11 +15,11 @@ addons:
       - g++-7
 
 script:
-  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then
-      CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7 cmake . ;
-      cmake . ;
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      cmake -Dtest=on . ;
+    else
+      CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7 cmake -Dtest=on . ;
     fi
-  - cmake -Dtest=on .
   - make -j2
   - make test
   - if [[ "$TRAVIS_TAG" ]]; then
