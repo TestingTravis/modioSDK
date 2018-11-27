@@ -12,10 +12,15 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - g++-5
+      - g++-4.9
 
 script:
-  - cmake -Dtest=on .
+
+  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then
+      cmake -Dtest=on . ;
+    else
+      CXX=g++-4.9 CC=gcc-4.9 cmake -Dtest=on . ;
+    fi
   - make -j2
   - make test
   - if [[ "$TRAVIS_TAG" ]]; then
