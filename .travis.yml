@@ -15,10 +15,6 @@ addons:
       - g++-5
 
 script:
-  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then
-      CXX=/usr/bin/g++-5 CC=/usr/bin/gcc-5 cmake . ;
-      cmake . ;
-    fi
   - cmake -Dtest=on .
   - make -j2
   - make test
