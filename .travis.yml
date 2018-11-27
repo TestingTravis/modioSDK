@@ -26,6 +26,9 @@ script:
       cmake -Dmode=static . ;
       make -j2 ; 
     fi
+  - if [[ "$TRAVIS_TAG" and "$TRAVIS_OS_NAME" != "osx"]]; then
+      mv libmodio.a libmodio_linux.a;
+    fi
 
 deploy:
   - provider: releases
