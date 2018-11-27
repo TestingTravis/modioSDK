@@ -22,9 +22,10 @@ script:
   - cmake -Dtest=on .
   - make -j2
   - make test
-  - ls
-  - if [[ "$TRAVIS_TAG" != "" ]]; then cmake -Dmode=static . ; fi
-  - if [[ "$TRAVIS_TAG" != "" ]]; then make -j2 ; fi
+  - if [[ "$TRAVIS_TAG" ]]; then
+      cmake -Dmode=static . ;
+      make -j2 ; 
+    fi
 
 deploy:
   - provider: releases
