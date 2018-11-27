@@ -18,7 +18,7 @@ script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       cmake -Dtest=on . ;
     else
-      CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7 cmake -Dtest=on . ;
+      cmake -Dtest=on . ;
     fi
   - make -j2
   - make test
