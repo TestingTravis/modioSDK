@@ -26,16 +26,20 @@ script:
       cmake -Dmode=static . ;
       make -j2 ; 
     fi
-  - if [ "$TRAVIS_TAG" ] && [ "$TRAVIS_OS_NAME" != "osx" ]; then
+  - if [ "$TRAVIS_TAG" ] && [ "$TRAVIS_OS_NAME" == "osx" ]; then
+      mv libmodio.a libmodio_osx.a ;
+      mv libmodio.dylib libmodio_osx.dylib ;
+    else
       mv libmodio.a libmodio_linux.a ;
+      mv libmodio.so libmodio_linux.so ;
     fi
 
 deploy:
   - provider: releases
     api_key: "${token}"
     file:
-      - "libmodio.so"
-      - "libmodio.a"
+      - "libmodio_linux.so"
+      - "libmodio_linux.a"
     skip_cleanup: true
     on:
       tags: true
@@ -43,8 +47,8 @@ deploy:
   - provider: releases
     api_key: "${token}"
     file:
-      - "libmodio.dylib"
-      - "libmodio.a"
+      - "libmodio_osx.dylib"
+      - "libmodio_osx.a"
     skip_cleanup: true
     on:
       tags: true
