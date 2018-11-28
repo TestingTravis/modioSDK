@@ -1,4 +1,6 @@
-CC=g++
+CXX=/usr/bin/g++-7
+CC=/usr/bin/gcc-7
+
 CFLAGS=-Wall -std=c++11
 INCLUDE_PATH = include/
 LIB_PATH = build/
