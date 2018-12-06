@@ -17,10 +17,9 @@ test_script:
 deploy:
   description: 'Release description huh'
   provider: GitHub
-  auth_token:
-    secure: gh_encrypted_token
-  artifact: modio.lib            # upload all NuGet packages to release assets
+  auth_token: gh_encrypted_token
+  artifact: modio.lib
   draft: false
   prerelease: false
   on:
-    APPVEYOR_REPO_TAG: true        # deploy on tag push only
+    APPVEYOR_REPO_TAG: true
