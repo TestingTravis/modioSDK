@@ -17,7 +17,7 @@ test_script:
 deploy:
   description: 'Release description huh'
   provider: GitHub
-  auth_token: gh_encrypted_token
+  auth_token: xx
   artifact: modio.lib
   draft: false
   prerelease: false
