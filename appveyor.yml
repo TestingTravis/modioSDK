@@ -14,4 +14,15 @@ build_script:
 test_script:
 - cmd: ctest -C Debug
 
-
+deploy:
+  release: myproductt-v$(appveyor_build_version)
+  description: 'Release description huh'
+  provider: GitHub
+  auth_token:
+    secure: <gh_encrypted_token> # your encrypted token from GitHub
+  artifact: modio.lib            # upload all NuGet packages to release assets
+  draft: false
+  prerelease: false
+  on:
+    branch: master                 # release from master branch only
+    APPVEYOR_REPO_TAG: true        # deploy on tag push only
