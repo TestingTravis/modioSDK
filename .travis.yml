@@ -7,6 +7,13 @@ os:
 dist: trusty
 sudo: false
 
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-5
+
 script:
   - /sbin/ldconfig -p | grep stdc++
   - strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep LIBCXX
@@ -14,7 +21,7 @@ script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       cmake -Dtest=on . ;
     else
-      CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7 cmake -Dtest=on . ;
+      CXX=/usr/bin/g++-4 CC=/usr/bin/gcc-5 cmake -Dtest=on . ;
     fi
   - make -j2
   - make test
