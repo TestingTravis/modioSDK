@@ -4,15 +4,8 @@ os:
   - linux
   - osx
 
-dist: trusty
+dist: xenial
 sudo: false
-
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-5
 
 script:
   - /sbin/ldconfig -p | grep stdc++
