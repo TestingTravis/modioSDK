@@ -22,10 +22,6 @@ script:
     fi
   - make -j2
   - make test
-  - gcc --version
-  - /usr/bin/gcc-7 --version
-  - make -f Makefilee
-  - ./MyProject
   - if [[ "$TRAVIS_TAG" ]]; then
       cmake -Dmode=static . ;
       make -j2 ; 
