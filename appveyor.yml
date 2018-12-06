@@ -18,7 +18,7 @@ deploy:
   description: 'Release description huh'
   provider: GitHub
   auth_token:
-    secure: gh_encrypted_token # your encrypted token from GitHub
+    secure: gh_encrypted_token
   artifact: modio.lib            # upload all NuGet packages to release assets
   draft: false
   prerelease: false
