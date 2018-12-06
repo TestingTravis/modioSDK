@@ -15,7 +15,6 @@ test_script:
 - cmd: ctest -C Debug
 
 deploy:
-  release: myproductt-v$(appveyor_build_version)
   description: 'Release description huh'
   provider: GitHub
   auth_token:
