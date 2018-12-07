@@ -15,7 +15,7 @@ test_script:
 - cmd: ctest -C Debug
 
 artifacts:
-  - path: modio.lib
+  - path: build/modio.lib
     name: libb
 
 deploy:
@@ -23,7 +23,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: "mPa2q6gkctTgPbec+bAGiPew2J7ehiDHalv4DW9H+RzIxgKZGr/ELPc9sLTVGlIB"
-  artifact: modio.lib
+  artifact: libb
   draft: false
   prerelease: false
   on:
