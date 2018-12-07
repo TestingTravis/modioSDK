@@ -7,7 +7,7 @@ build_script:
 
     cd dynamic_build
 
-    cmake c:\projects\source -G "Visual Studio 15"
+    cmake -G "Visual Studio 15" c:\projects\source
 
     cmake --build . --config "Release"
 
@@ -17,7 +17,7 @@ build_script:
 
     cd static_build
 
-    cmake -Dmode=static -G "Visual Studio 15" c:\projects\source
+    cmake -D mode=static -G "Visual Studio 15" c:\projects\source
 
     cmake --build . --config "Release"
 
@@ -27,17 +27,21 @@ build_script:
 
     cd dynamic_build_64bits
 
-    cmake c:\projects\source -G "Visual Studio 15 Win64"
+    cmake -G "Visual Studio 15 Win64" c:\projects\source
 
     cmake --build . --config "Release"
+
+    dir
 
     mkdir static_build_64bits
 
     cd static_build_64bits
 
-    cmake -Dmode=static -G "Visual Studio 15 Win64" c:\projects\source
+    cmake -D mode=static -G "Visual Studio 15 Win64" c:\projects\source
 
     cmake --build . --config "Release"
+
+    dir
 
 test_script:
 - cmd: ctest -C Release
