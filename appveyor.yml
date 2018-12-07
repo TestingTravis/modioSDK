@@ -43,9 +43,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: "mPa2q6gkctTgPbec+bAGiPew2J7ehiDHalv4DW9H+RzIxgKZGr/ELPc9sLTVGlIB"
-  artifact:
-    - DynamicRelease
-    - StaticRelease
+  artifact: DynamicRelease, StaticRelease
   draft: false
   prerelease: false
   on:
