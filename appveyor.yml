@@ -4,22 +4,39 @@ clone_folder: c:\projects\source
 build_script:
 - cmd: >-
     mkdir dynamic_build
+
     cd dynamic_build
+
     cmake c:\projects\source -G "Visual Studio 15"
+
     cmake --build . --config "Release"
+
     cd ..
+
     mkdir static_build
+
     cd static_build
+
     cmake -Dmode=static -G "Visual Studio 15" c:\projects\source
+
     cmake --build . --config "Release"
+
     cd ..
+
     mkdir dynamic_build_64bits
+
     cd dynamic_build_64bits
+
     cmake c:\projects\source -G "Visual Studio 15 Win64"
+
     cmake --build . --config "Release"
+
     mkdir static_build_64bits
+
     cd static_build_64bits
+
     cmake -Dmode=static -G "Visual Studio 15 Win64" c:\projects\source
+
     cmake --build . --config "Release"
 
 test_script:
