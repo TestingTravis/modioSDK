@@ -18,7 +18,7 @@ deploy:
   description: 'Release description huh'
   provider: GitHub
   auth_token:
-    secure: "fds"
+    secure: gh_encrypted_tokenn
   artifact: modio.lib
   draft: false
   prerelease: false
