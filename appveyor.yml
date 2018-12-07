@@ -21,7 +21,7 @@ build_script:
 
     cd buildStatic
 
-    cmake c:\projects\source -G "Visual Studio 15" -D mode=static
+    cmake -Dmode=static -G "Visual Studio 15" c:\projects\source
 
     cmake --build . --config "Release"
 
