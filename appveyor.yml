@@ -9,15 +9,17 @@ build_script:
     
     cmake c:\projects\source -G "Visual Studio 15"
     
-    cmake --build . --config "Debug"
+    cmake --build . --config "Release"
 
     dir
 
+    dir Release
+
 test_script:
-- cmd: ctest -C Debug
+- cmd: ctest -C Release
 
 artifacts:
-  - path: build/modio.lib
+  - path: build\Release\modio.lib
     name: libb
 
 deploy:
