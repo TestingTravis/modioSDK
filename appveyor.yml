@@ -14,6 +14,10 @@ build_script:
 test_script:
 - cmd: ctest -C Debug
 
+artifacts:
+  - path: modio.lib
+    name: libb
+
 deploy:
   description: 'Release description huh'
   provider: GitHub
