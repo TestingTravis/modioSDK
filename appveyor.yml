@@ -19,15 +19,15 @@ test_script:
 - cmd: ctest -C Release
 
 artifacts:
-  - path: build\Release\modio.lib
-    name: libb
+  - path: build\Release\
+    name: DynamicRelease
 
 deploy:
   description: 'Release description huh'
   provider: GitHub
   auth_token:
     secure: "mPa2q6gkctTgPbec+bAGiPew2J7ehiDHalv4DW9H+RzIxgKZGr/ELPc9sLTVGlIB"
-  artifact: libb
+  artifact: DynamicRelease
   draft: false
   prerelease: false
   on:
