@@ -31,7 +31,7 @@ build_script:
 
     cmake --build . --config "Release"
 
-    dir
+    cd ..
 
     mkdir static_build_64bits
 
@@ -40,8 +40,6 @@ build_script:
     cmake -D mode=static -G "Visual Studio 15 Win64" c:\projects\source
 
     cmake --build . --config "Release"
-
-    dir
 
 test_script:
 - cmd: ctest -C Release
