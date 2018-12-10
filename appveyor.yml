@@ -38,29 +38,20 @@ build_script:
     cd ..
 
 after_build:
-  - dir
   - 7z a Windows.zip dynamic_build\Release\* static_build\Release\* dynamic_build_64bits\Release\* static_build_64bits\Release\* 
 
 test_script:
 - cmd: ctest -C Release
 
 artifacts:
-  - path: dynamic_build\Release\
-    name: WindowsDynamic
-  - path: static_build\Release\
-    name: WindowsStatic
-  - path: dynamic_build_64bits\Release\
-    name: WindowsDynamic64bits
-  - path: static_build_64bits\Release\
-    name: WindowsStatic64bits
   - path: Windows.zip
-    name: Windowss
+    name: Windows
 
 deploy:
   provider: GitHub
   auth_token:
     secure: "mPa2q6gkctTgPbec+bAGiPew2J7ehiDHalv4DW9H+RzIxgKZGr/ELPc9sLTVGlIB"
-  artifact: WindowsDynamic, WindowsStatic, WindowsDynamic64bits, WindowsStatic64bits, Windowss
+  artifact: Windows
   draft: false
   prerelease: false
   on:
