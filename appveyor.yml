@@ -11,37 +11,34 @@ build_script:
 
     cmake --build . --config "Release"
 
-    cd ..
+    mkdir ../static_build
 
-    mkdir static_build
-
-    cd static_build
+    cd ../static_build
 
     cmake -D mode=static -G "Visual Studio 15" c:\projects\source
 
     cmake --build . --config "Release"
 
-    cd ..
+    mkdir ../dynamic_build_64bits
 
-    mkdir dynamic_build_64bits
-
-    cd dynamic_build_64bits
+    cd ../dynamic_build_64bits
 
     cmake -G "Visual Studio 15 Win64" c:\projects\source
 
     cmake --build . --config "Release"
 
-    cd ..
+    mkdir ../static_build_64bits
 
-    mkdir static_build_64bits
-
-    cd static_build_64bits
+    cd ../static_build_64bits
 
     cmake -D mode=static -G "Visual Studio 15 Win64" c:\projects\source
 
     cmake --build . --config "Release"
 
+    cd ..
+
 after_build:
+  - dir
   - 7z a Windows.zip dynamic_build\Release\* static_build\Release\* dynamic_build_64bits\Release\* static_build_64bits\Release\* 
 
 test_script:
