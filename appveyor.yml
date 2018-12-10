@@ -41,6 +41,9 @@ build_script:
 
     cmake --build . --config "Release"
 
+after_build:
+  - 7z a Windows.zip dynamic_build\Release\* static_build\Release\* dynamic_build_64bits\Release\* static_build_64bits\Release\* 
+
 test_script:
 - cmd: ctest -C Release
 
@@ -53,12 +56,14 @@ artifacts:
     name: WindowsDynamic64bits
   - path: static_build_64bits\Release\
     name: WindowsStatic64bits
+  - path: Windows.zip
+    name: Windowss
 
 deploy:
   provider: GitHub
   auth_token:
     secure: "mPa2q6gkctTgPbec+bAGiPew2J7ehiDHalv4DW9H+RzIxgKZGr/ELPc9sLTVGlIB"
-  artifact: WindowsDynamic, WindowsStatic, WindowsDynamic64bits, WindowsStatic64bits
+  artifact: WindowsDynamic, WindowsStatic, WindowsDynamic64bits, WindowsStatic64bits, Windowss
   draft: false
   prerelease: false
   on:
