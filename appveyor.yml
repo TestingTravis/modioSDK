@@ -3,13 +3,7 @@ image:
 clone_folder: c:\projects\source
 build_script:
 - cmd: >-
-    if defined APPVEYOR_REPO_TAG ( echo "true" ) else ( echo "false" )
-
-    echo $APPVEYOR_REPO_TAG
-
-    echo %APPVEYOR_REPO_TAG%
-
-    echo APPVEYOR_REPO_TAG
+    if %APPVEYOR_REPO_TAG% ( echo "true" ) else ( echo "false" )
 
     mkdir dynamic_build
 
