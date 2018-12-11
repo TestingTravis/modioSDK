@@ -5,9 +5,6 @@ build_script:
 - cmd: >-
     .\appveyor_build_config.bat
 
-after_build:
-  - 7z a Windows.zip dynamic_build\Release\* static_build\Release\* dynamic_build_64bits\Release\* static_build_64bits\Release\* 
-
 test_script:
 - cmd: ctest -C Release
 
