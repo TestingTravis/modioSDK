@@ -1,6 +1,6 @@
 mkdir dynamic_build
 cd dynamic_build
-cmake -G "Visual Studio 15" c:\projects\source
+cmake -D test=on -G "Visual Studio 15" c:\projects\source
 cmake --build . --config "Release"
 
 if %APPVEYOR_REPO_TAG% == true (

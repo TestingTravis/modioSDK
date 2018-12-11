@@ -6,7 +6,9 @@ build_script:
     .\appveyor_build_config.bat
 
 test_script:
-- cmd: ctest -C Release
+- cmd: >-
+    cd dynamic_build
+    make test
 
 artifacts:
   - path: Windows.zip

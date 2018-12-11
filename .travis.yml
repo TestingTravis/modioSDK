@@ -9,14 +9,14 @@ sudo: false
 
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      cmake -Dtest=on . ;
+      cmake -D test=on . ;
     else
       CXX=/usr/bin/g++-5 CC=/usr/bin/gcc-5 cmake -Dtest=on . ;
     fi
   - make -j2
   - make test
   - if [[ "$TRAVIS_TAG" ]]; then
-      cmake -Dmode=static . ;
+      cmake -D mode=static . ;
       make -j2 ; 
     fi
   - if [ "$TRAVIS_TAG" ]; then
