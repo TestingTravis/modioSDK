@@ -5,6 +5,8 @@ build_script:
 - cmd: >-
     if defined APPVEYOR_REPO_TAG ( echo "true" ) else ( echo "false" )
 
+    echo $APPVEYOR_REPO_TAG
+
     mkdir dynamic_build
 
     cd dynamic_build
