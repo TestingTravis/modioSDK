@@ -4,17 +4,9 @@ clone_folder: c:\projects\source
 build_script:
 - cmd: >-
     if %APPVEYOR_REPO_TAG% == false (
-      
-      echo "not set"
-
-      echo "not set2"
-    
+      echo "not sett"
     ) else (
-      
-      echo "set"
-
-      echo "set2"
-    
+      echo "sett"
     )
 
     echo %APPVEYOR_REPO_TAG%
