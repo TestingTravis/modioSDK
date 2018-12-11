@@ -7,6 +7,10 @@ build_script:
 
     echo $APPVEYOR_REPO_TAG
 
+    echo %APPVEYOR_REPO_TAG%
+
+    echo APPVEYOR_REPO_TAG
+
     mkdir dynamic_build
 
     cd dynamic_build
